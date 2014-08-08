@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * EYEMAGINE - The leading Magento Solution Partner
+ *
+ * HubSpot Integration with Magento
+ *
+ * @author    EYEMAGINE <magento@eyemaginetech.com>
+ * @category  Eyemagine
+ * @package   Eyemagine_HubSpot
+ * @copyright Copyright (c) 2013 EYEMAGINE Technology, LLC (http://www.eyemaginetech.com)
+ * @license   http://www.eyemaginetech.com/license.txt
+ */
+-->
+<config>
+    <modules>
+        <Eyemagine_HubSpot>
+            <version>1.0.3</version>
+        </Eyemagine_HubSpot>
+    </modules>
+    <global>
+        <models>
+            <eyehubspot>
+                <class>Eyemagine_HubSpot_Model</class>
+            </eyehubspot>
+        </models>
+        <resources>
+            <eyehubspot_setup>
+                <setup>
+                    <module>Eyemagine_HubSpot</module>
+                </setup>
+            </eyehubspot_setup>
+        </resources>
+        <blocks>
+            <eyehubspot>
+                <class>Eyemagine_HubSpot_Block</class>
+            </eyehubspot>
+        </blocks>
+        <helpers>
+            <eyehubspot>
+                <class>Eyemagine_HubSpot_Helper</class>
+            </eyehubspot>
+        </helpers>
+        <events>
+            <sales_quote_collect_totals_before>
+                <observers>
+                    <eyehubspot>
+                        <class>eyehubspot/observer</class>
+                        <method>updateHubSpotUtkForQuote</method>
+                    </eyehubspot>
+                </observers>
+            </sales_quote_collect_totals_before>
+            <sales_convert_quote_to_order>
+                <observers>
+                    <eyehubspot>
+                        <class>eyehubspot/observer</class>
+                        <method>copyHubSpotUtk</method>
+                    </eyehubspot>
+                </observers>
+            </sales_convert_quote_to_order>
+        </events>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Eyemagine_HubSpot before="Mage_Adminhtml">Eyemagine_HubSpot_Adminhtml</Eyemagine_HubSpot>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <eyehubspot>
+                <use>standard</use>
+                <args>
+                    <module>Eyemagine_HubSpot</module>
+                    <frontName>eyehubspot</frontName>
+                </args>
+            </eyehubspot>
+        </routers>
+        <secure_url>
+            <eyehubspot>/eyehubspot/</eyehubspot>
+        </secure_url>
+    </frontend>
+    <default>
+        <eyehubspot>
+            <settings>
+                <unavailable_msg>The requested product is currently not available. Here are some other products you might be interested in.</unavailable_msg>
+            </settings>
+        </eyehubspot>
+    </default>
+</config>

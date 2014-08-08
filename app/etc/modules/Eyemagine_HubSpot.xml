@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+     /**
+      * EYEMAGINE - The leading Magento Solution Partner
+       *
+        * HubSpot Integration with Magento
+         *
+          * @author    EYEMAGINE <magento@eyemaginetech.com>
+           * @category  Eyemagine
+            * @package   Eyemagine_HubSpot
+             * @copyright Copyright (c) 2013 EYEMAGINE Technology, LLC (http://www.eyemaginetech.com)
+              * @license   http://www.eyemaginetech.com/license.txt
+               */
+               -->
+<config>
+    <modules>
+        <Eyemagine_HubSpot>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales /> 
+                <Mage_Checkout />
+            </depends>
+        </Eyemagine_HubSpot>
+    </modules>
+</config>

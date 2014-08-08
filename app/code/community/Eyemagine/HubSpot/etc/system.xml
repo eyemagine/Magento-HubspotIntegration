@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * EYEMAGINE - The leading Magento Solution Partner
+ *
+ * HubSpot Integration with Magento
+ *
+ * @author    EYEMAGINE <magento@eyemaginetech.com>
+ * @category  Eyemagine
+ * @package   Eyemagine_HubSpot
+ * @copyright Copyright (c) 2013 EYEMAGINE Technology, LLC (http://www.eyemaginetech.com)
+ * @license   http://www.eyemaginetech.com/license.txt
+ */
+-->
+<config>
+    <sections>
+        <eyehubspot translate="label" module="eyehubspot">
+            <label>HubSpot Integration</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <info translate="label">
+                    <label>About</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <info translate="label">
+                            <label>Extension Info</label>
+                            <frontend_model>eyehubspot/adminhtml_frontend_eyemagine_info</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </info>
+                        <heading_info translate="label">
+                            <label>Installed Extension Details</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_info>
+                        <version translate="label">
+                            <label>Version</label>
+                            <frontend_type>note</frontend_type>
+                            <frontend_model>eyehubspot/adminhtml_frontend_eyemagine_version</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </version>
+                        <supportemail translate="label">
+                            <label>Support Email</label>
+                            <frontend_type>note</frontend_type>
+                            <frontend_model>eyehubspot/adminhtml_frontend_eyemagine_support</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </supportemail>
+                    </fields>
+                </info>
+                <settings translate="label">
+                    <label>HubSpot Integration Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable</label>
+                            <sort_order>1</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>Must be enabled for sync access</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <userkey translate="label">
+                            <label>User Key</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip>Copy this field to the HubSpot Magento app</tooltip>
+                        </userkey>
+                        <passcode translate="label">
+                            <label>Access Code</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </passcode>
+                        <regen translate="label">
+                            <label>Regenerate Access Codes</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>eyehubspot/adminhtml_frontend_button_regen</frontend_model>
+                            <sort_order>120</sort_order>
+                            <depends><active>1</active></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </regen>
+                        
+                        <!-- Link Options -->
+                        <heading_notifications translate="label">
+                            <label>Link Options</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <depends><active>1</active></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_notifications>
+                        <unavailable_msg translate="label">
+                            <label>Product Unavailable Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>210</sort_order>
+                            <depends><active>1</active></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Display this message and the search results when requested product is not available on frontend.</tooltip>
+                        </unavailable_msg>
+                    </fields>
+                </settings>
+                <utk translate="label">
+                    <label>HubSpot UTK</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <utk translate="label">
+                            <label>Compatibility Note</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>eyehubspot/adminhtml_frontend_utk</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </utk>
+                    </fields>
+                </utk>
+            </groups>
+        </eyehubspot>
+    </sections>
+</config>
